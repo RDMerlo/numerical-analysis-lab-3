@@ -128,7 +128,7 @@ matrix_X0_dot = np.array(matrix_X0_dot_arr, float)
 
 arr, steps = method_seidel(matrix_X0_dot_arr[0], matrix_X0_dot_arr[1], matrix_X0_dot_arr[2])
 print("Метод Зейделя")
-print_vector_18(arr, 8)
+print_vector_18(arr, 4)
 print("Количество шагов\n",steps)
 print("\nВектор невязки")
 r = vector_nevyazki([0, 0, 0], arr.copy())
@@ -140,7 +140,7 @@ dost_usl(matrix_X0_dot_arr)
 
 print('Метод Ньютона')
 matrix_dot_solved, steps = method_Newton(matrix_X0_dot.copy())
-print_vector_18(matrix_dot_solved, 8)
+print_vector_18(matrix_dot_solved, 4)
 print('Шагов метода:', steps)
 
 # Вектор невязки
