@@ -75,17 +75,19 @@ def method_seidel(x, y, z):
     eps = 0.0001
     n = 10000
     for k in range(n):
-     xk_1 = (x ** 2 - 2 * y * z - 0.1)
-     yk_1 = (-y ** 2 + 3 * xk_1 * z + 0.2)
-     zk_1 = (z ** 2 + 2 * xk_1 * yk_1 - 0.3)
-     if (abs(xk_1-x)<eps and abs(yk_1-y)< eps and abs(zk_1-z)<eps):
+      xk_1 = (x ** 2 - 2 * y * z - 0.1)
+      yk_1 = (-y ** 2 + 3 * xk_1 * z + 0.2)
+      zk_1 = (z ** 2 + 2 * xk_1 * yk_1 - 0.3)
+      dot_new = np.array([xk_1, yk_1, zk_1])
+      dot = np.array([x, y, z])
+      if (get_norm_vector(dot, dot_new) < eps):
         zz1 = xk_1
         zz2 = yk_1
         zz3 = zk_1
         break
-     x = xk_1
-     y = yk_1
-     z = zk_1
+      x = xk_1
+      y = yk_1
+      z = zk_1
     arr = np.array([-zz1,-zz2,-zz3])
     aa= np.round(arr,decimals=16)
     return aa, k
